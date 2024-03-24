@@ -1,8 +1,9 @@
-import ExpenseItem from "./Components/ExpenseItem";
+
 import ExpensesContainer from "./Components/ExpensesContainer";
 import NewExpenses from "./Components/newExpenses";
-
+import { useState } from "react";
 function App() {
+
   const expensesData = [
     {
       id: 1,
@@ -29,12 +30,21 @@ function App() {
       date: new Date(2025, 3, 10),
     },
   ];
+   const [update, setUpdate] = useState(expensesData);
+  const getData = (x) => {
+    setUpdate([x, ...update]);
+  };
   return (
     <div>
-      <NewExpenses />
-      <ExpensesContainer expensesData={expensesData} />
+      <NewExpenses getData={getData} />
+      <ExpensesContainer expensesData={update} />
     </div>
   );
+ 
+  
 }
-
+//blach pionteur
+// filting props
+//+ casting to number 
+// "" to string
 export default App;

@@ -8,6 +8,7 @@ const ExpensesFilter = ({ years, setSelectedYear }) => {
         onChange={(event) => {
           setSelectedYear(event.target.value);
         }}
+        
       >
          <option>all</option>
         {years.map((item) => {
